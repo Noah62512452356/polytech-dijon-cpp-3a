@@ -5,16 +5,22 @@
 #include <iostream>
 #include "artiste.h"
 
+using namespace std;
+
 class Oeuvre {
 private:
-    std::string nom;
-    std::string type;
+    string nom;
+    string type;
+    Artiste* artiste;
 
 public:
-    Oeuvre(std::string n, std::string t);
+    Oeuvre(string n, string t, Artiste* art);
 
-    std::string get_Nom() const;
-    std::string get_Type() const;
+    string get_Nom();
+    string get_Type();
+    Artiste* get_Artiste();
+
+    friend ostream& operator<<(ostream& os, const Oeuvre& o);
 };
 
 #endif

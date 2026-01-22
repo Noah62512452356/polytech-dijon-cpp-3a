@@ -7,20 +7,26 @@
 #include "salle.h"
 #include "date.h"
 
+using namespace std;
+
 class Exposition {
 private:
-    std::string nom;
-    std::vector<Salle> liste_salle;
+    string nom;
+    vector<Salle> liste_salle;
     Date debut;
     Date fin;
 
 public:
-    Exposition(std::string n, std::vector<Salle> l_s, Date debut, Date fin);
+    Exposition(string n, Date d, Date f);
 
-    std::string get_Nom() const;
-    std::vector<Salle> get_Liste_Salle() const;
-    Date get_Debut() const;
-    Date get_Fin() const;
+    string get_Nom();
+    vector<Salle> get_Liste_Salle();
+    Date get_Debut();
+    Date get_Fin();
+
+    void ajouterSalle(Salle s);
+
+    friend ostream& operator<<(ostream& os, const Exposition& e);
 };
 
 #endif

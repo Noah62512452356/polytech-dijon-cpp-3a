@@ -1,6 +1,18 @@
 #include "salle.h"
 
-Salle::Salle(std::string n, std::vector<Oeuvre> l_o) : nom(n), liste_oeuvre(l_o) {}
+Salle::Salle(string n) : nom(n) {}
 
-std::string Salle::get_Nom() const {return nom;}
-std::vector<Oeuvre> Salle::get_Liste_Oeuvre() const {return liste_oeuvre;}
+string Salle::get_Nom() {return nom;}
+vector<Oeuvre> Salle::get_Liste_Oeuvre() {return liste_oeuvre;}
+
+void Salle::ajouterOeuvre(Oeuvre o) {
+    liste_oeuvre.push_back(o);
+}
+
+ostream& operator<<(ostream& os, const Salle& s) {
+    os << "   => Salle : " << s.nom << endl;
+    for (int i = 0; i < s.liste_oeuvre.size(); i++) {
+        os << "      - " << s.liste_oeuvre[i] << endl;
+    }
+    return os;
+}

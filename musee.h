@@ -4,21 +4,30 @@
 #include <string>
 #include <vector>
 #include <iostream>
-#include "exposition.h"
 #include "oeuvre.h"
+#include "exposition.h"
+
+using namespace std;
 
 class Musee {
 private:
-    std::string nom;
-    std::vector<Oeuvre> liste_oeuvre;
-    std::vector<Exposition> liste_exposition;
+    string nom;
+    vector<Oeuvre> stock_oeuvre;
+    vector<Exposition> liste_exposition;
 
 public:
-    Musee(std::string n, std::vector<Oeuvre> l_o, std::vector<Exposition> l_e);
+    Musee(string n);
 
-    std::string get_Nom() const;
-    std::vector<Oeuvre> get_Liste_Oeuvre() const;
-    std::vector<Exposition> get_Liste_Exposition() const;
+    string get_Nom();
+    vector<Oeuvre> get_Liste_Oeuvre();
+    vector<Exposition> get_Liste_Exposition();
+
+    void ajouterOeuvreStock(Oeuvre o);
+    void retirerOeuvreStock(string nom_oeuvre);
+
+    void ajouterExposition(Exposition e);
+
+    friend ostream& operator<<(ostream& os, const Musee& m);
 };
 
 #endif

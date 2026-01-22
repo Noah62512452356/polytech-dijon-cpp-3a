@@ -1,7 +1,24 @@
 #include "artiste.h"
 
-Artiste::Artiste(std::string n, std::string p, std::vector<std::string> s) : nom(n), prenom(p), specialites(s) {}
+Artiste::Artiste(string n, string p) : nom(n), prenom(p) {}
 
-std::string Artiste::get_Nom() const {return nom;}
-std::string Artiste::get_Prenom() const {return prenom;}
-std::vector<std::string> Artiste::get_Specialites() const {return specialites;}
+string Artiste::get_Nom() {return nom;}
+string Artiste::get_Prenom() {return prenom;}
+vector<string> Artiste::get_Specialites() {return specialites;}
+
+void Artiste::ajouterSpecialite(string spe) {
+    specialites.push_back(spe);
+}
+
+ostream& operator<<(ostream& os, const Artiste& a) {
+    os << a.nom << " " << a.prenom << " (Specialites : ";
+    if (a.specialites.size() == 0) {
+        os << "Aucune";
+    } else {
+        for (int i = 0; i < a.specialites.size(); i++) {
+            os << a.specialites[i] << " ";
+        }
+    }
+    os << ")";
+    return os;
+}

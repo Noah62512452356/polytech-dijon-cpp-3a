@@ -4,20 +4,25 @@
 #include <string>
 #include <vector>
 #include <iostream>
-#include "oeuvre.h"
+
+using namespace std;
 
 class Artiste {
 private:
-    std::string nom;
-    std::string prenom;
-    std::vector<std::string> specialites;
+    string nom;
+    string prenom;
+    vector<string> specialites;
 
 public:
-    Artiste(std::string n, std::string p, std::vector<std::string> s);
+    Artiste(string n, string p);
 
-    std::string get_Nom() const;
-    std::string get_Prenom() const;
-    std::vector<std::string> get_Specialites() const;
+    string get_Nom();
+    string get_Prenom();
+    vector<string> get_Specialites();
+
+    void ajouterSpecialite(string spe);
+
+    friend ostream& operator<<(ostream& os, const Artiste& a);
 };
 
 #endif

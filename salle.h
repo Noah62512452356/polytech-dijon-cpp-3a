@@ -6,16 +6,22 @@
 #include <iostream>
 #include "oeuvre.h"
 
+using namespace std;
+
 class Salle {
 private:
-    std::string nom;
-    std::vector<Oeuvre> liste_oeuvre;
+    string nom;
+    vector<Oeuvre> liste_oeuvre;
 
 public:
-    Salle(std::string n, std::vector<Oeuvre> l_o);
+    Salle(string n);
 
-    std::string get_Nom() const;
-    std::vector<Oeuvre> get_Liste_Oeuvre() const;
+    string get_Nom();
+    vector<Oeuvre> get_Liste_Oeuvre();
+
+    void ajouterOeuvre(Oeuvre o);
+
+    friend ostream& operator<<(ostream& os, const Salle& s);
 };
 
 #endif
